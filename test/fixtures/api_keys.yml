@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tokenable_id: 1
+  tokenable_type: MyString
+  access_token: MyString
+  scope: MyString
+  expired_at: 2013-07-09 09:58:40
+  created_at: 2013-07-09 09:58:40
+
+two:
+  tokenable_id: 1
+  tokenable_type: MyString
+  access_token: MyString
+  scope: MyString
+  expired_at: 2013-07-09 09:58:40
+  created_at: 2013-07-09 09:58:40
