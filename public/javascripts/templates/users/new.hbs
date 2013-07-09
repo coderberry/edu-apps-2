@@ -1,0 +1,37 @@
+<div class="bg-light-grey">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span4 offset2">
+        <h2 class="page-header">Register</h2>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span4 offset2">
+        <p>Do you already have an account?<br>Then you can {{#linkTo 'session.new'}}login here{{/linkTo}}</p>
+      </div>
+      <div class="span4">
+        <form {{action "createUser" on="submit"}} class="chunky-form">
+          <div {{bindAttr class=":controls errors.name:error"}}>
+            {{input type="text" value=name placeholder="Full Name"}}
+            <small class="below">{{errors.name}}</small>
+          </div>
+          <div {{bindAttr class=":controls errors.email:error"}}>
+            {{input type="email" value=email placeholder="Email Address"}}
+            <small class="below">{{errors.email}}</small>
+          </div>
+          <div {{bindAttr class=":controls errors.password:error"}}>
+            {{input type="password" value=password placeholder="Password"}}
+            <small class="below">{{errors.password}}</small>
+          </div>
+          <div {{bindAttr class=":controls errors.password_confirmation:error"}}>
+            {{input type="password" value=password_confirmation placeholder="Confirm Password"}}
+            <small class="below">{{errors.password_confirmation}}</small>
+          </div>
+          <div class="controls">
+            <button class="btn btn-primary" type="submit">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

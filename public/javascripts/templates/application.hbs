@@ -1,0 +1,39 @@
+<div id="header">
+  <header>
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-inner">
+          {{#linkTo "index" class="brand"}}Edu Apps{{/linkTo}}
+
+          <ul class="nav nav-pills" style="margin-left: 208px; width: -webkit-fit-content; width: -moz-fit-content; width: fit-content;">
+            {{#li}}{{#linkTo 'apps'}}Apps{{/linkTo}}{{/li}}
+            {{#li}}{{#linkTo 'tutorials'}}Tutorials{{/linkTo}}{{/li}}
+            {{#li}}{{#linkTo 'docs'}}Docs{{/linkTo}}{{/li}}
+            {{#li}}<a href="#">Submit</a>{{/li}}
+          </ul>
+
+          <ul class="nav nav-pills pull-right">
+            {{#if isAuthenticated}}
+              {{#li}}{{#linkTo 'users.show'}}{{currentUser.email}}{{/linkTo}}{{/li}}
+              <li><a href="#" {{action "logout" on="click"}}>Logout</a></li>
+            {{else}}
+              {{#li}}{{#linkTo 'session.new'}}Login{{/linkTo}}{{/li}}
+            {{/if}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div id="content">
+  {{outlet}}
+</div>
+
+<footer id="footer">
+  <p class="muted">
+    This site and its contents are <a href="https://github.com/cavneb/edu_apps">available on GitHub</a> under the MIT license. Official IMS LTI docs are found on the <a href="http://www.imsglobal.org/lti/">IMS page</a>.<br>
+    Also check out IMS's <a href="http://www.imsglobal.org/lti">LTI Directory</a> and details on<a href="http://www.imscert.org">LTI Conformance</a>.
+  </p>
+</footer>
+

@@ -1,0 +1,327 @@
+@import "bootstrap/bootstrap";
+
+@bg-gray: #eee;
+
+.navbar-inner {
+  box-shadow:           none;
+  -moz-box-shadow:      none;
+  -webkit-box-shadow:   none;
+  background:           transparent !important;
+  border:               none !important;
+}
+
+.navbar .nav .dropdown-toggle .caret {
+  margin-top: 5px;
+}
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+  box-shadow:           none;
+  -moz-box-shadow:      none;
+  -webkit-box-shadow:   none;
+}
+
+#header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 30;
+  header {
+    padding: 20px 0 5px 0;
+    opacity: 0.98;
+    border-bottom: 1px solid @bg-gray;
+    background: #fafafa;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+hr {
+  border-color: rgb(219, 219, 219);
+  height: 1px;
+}
+
+#content {
+  min-width: 970px;
+  padding-top: 86px;
+  section {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+
+    h2,h3,h4 {
+      margin-top: 0px;
+    }
+  }
+  table.table th {
+    font-weight: normal;
+    color: rgb(202, 202, 202);
+  }
+  p {
+    line-height: 22px;
+    margin-bottom: 15px;
+  }
+}
+
+footer#footer {
+  text-align: center;
+  padding-top: 5px;
+  font-size: 300;
+}
+
+.sub-nav-wrapper {
+  .sub-nav {
+    width: -webkit-fit-content;
+       width: -moz-fit-content;
+            width: fit-content;
+    margin: 0 auto;
+    li {
+      margin: 0 15px;
+      text-align: center;
+      a:hover {
+        background-color: transparent;
+      }
+      .arrow-down {
+        display: none;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #fff;
+        margin: 10px auto -30px;
+      }
+      a.active {
+        color: @navLinkColor;
+        background-color: transparent;
+        .arrow-down {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.bg-light-grey {
+  padding: 80px 0;
+  background-color: @bg-gray;
+  border-top: 1px solid darken(@bg-gray, 10%);
+  border-bottom: 1px solid darken(@bg-gray, 10%);
+}
+
+// Forms
+
+.chunky-form {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border: none;
+    margin: 0 0 15px -5px;
+    font-weight: 400;
+    font-size: 16px !important;
+    padding: 8px;
+  }
+
+  button,
+  a.btn {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border: none;
+    margin: 0 0 15px -5px;
+    font-weight: 300;
+    font-size: 16px !important;
+    padding: 8px 20px;
+    margin-right: 10px;
+  }
+}
+
+form {
+  td input {
+    margin-bottom: 0px !important;
+  }
+  .controls {
+    small.below {
+      display: none;
+    }
+    &.error {
+      small.below {
+        display: block;
+        width: 99%;
+        position: relative;
+        top: -15px;
+        padding: 2px 9px;
+        margin: 0 10px 0 -5px;
+        background-color: @errorBackground;
+        color: @errorText;
+      }
+    }
+    .btn-aside {
+      position: relative;
+      top: -5px;
+      left: 10px;
+    }
+  }
+}
+
+// Settings
+
+.settings-content {
+  background-color: #fff;
+  padding: 20px;
+
+  .settings-header {
+    margin-bottom: 15px;
+    h4 {
+      margin: 0px;
+    }
+  }
+
+  .chunky-form {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      border: 2px solid #eee;
+      width: 98%;
+
+      &:focus {
+        border-color: #aaa;
+      }
+    }
+  }
+}
+
+#apps-container {
+  list-style: none;
+  margin-left: 45px;
+
+  li {
+    -webkit-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.6);
+       -moz-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.6);
+            box-shadow: 0 8px 6px -6px rgba(0,0,0,0.6);
+    position: relative;
+    background: #fffceb;
+    color: #333;
+
+    float: left;
+    display: block;
+    width: 200px;
+    margin: 0 15px 38px 0;
+    border: 1px solid #ccc;
+    height: 220px;
+    
+    div.banner {
+      background-color: #fff;
+      padding: 5px;
+      text-align: center;
+    }
+
+    h4.name {
+      background-color: #fff;
+      text-align: center;
+      margin: 0px;
+      padding: 0 5px;
+      line-height: 24px;
+      font-size: 13px;
+      border-top: 1px solid #efefef;
+      border-bottom: 1px solid #efefef;
+    }
+
+    &:hover {
+      h4.name {
+        color: @linkColor;
+      }
+    }
+
+    p.short-description {
+      padding: 5px;
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    a {
+      color: #333;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    div.meta {
+      border: 1px solid #ccc;
+      border-top: 0px;
+      background-color: #fff;
+      -webkit-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.3);
+         -moz-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.3);
+              box-shadow: 0 8px 6px -6px rgba(0,0,0,0.3);
+      position: absolute;
+      bottom: -28px;
+      left: 5px;
+      right: 5px;
+      padding: 3px 6px;
+      font-weight: 300;
+      color: #eee;
+    }
+  }
+}
+
+.app-details {
+  h2 {
+    margin: 0px;
+  }
+  small.author {
+    font-size: 13px;
+    color: #666;
+  }
+  div.description {
+    margin-top: 20px;
+  }
+  ul.tags {
+    margin: 10px 0px;
+    padding: 0px;
+    list-style: none;
+
+    li {
+      display: block;
+      color: #fff;
+      background-color: red;
+      float: left;
+      margin: 0 3px 3px 0;
+      padding: 0 8px;
+      font-size: 12px;
+
+      &.extension { background-color: #d5a76f; }
+      &.tag { background-color: #6abcda;}
+      &.category { background-color: #a1ddbd;}
+      &.education-level { background-color: #fd6737;}
+      &.platform { background-color: #49509a;}
+    }
+  }
+}
+
+
+
+
+// Flash
+
+#flash-view {
+  position: fixed;
+  top: 87px;
+  width: 100%;
+  z-index: 20;
+  overflow: hidden;
+}
+#flash-view #message {
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.2em;
+  text-align: center;
+  padding: 20px 0;
+}
+#flash-view.notice #message {
+  background-color: #6c3;
+}
+#flash-view.alert #message {
+  background-color: #f14247;
+}
+#flash-view.error #message {
+  background-color: #f14247;
+}

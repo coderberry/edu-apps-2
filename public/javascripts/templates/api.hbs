@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="span3">
+    <div data-spy="affix" data-offset-top="0">
+      <ul class="nav nav-list">
+        {{#li}}{{#linkTo 'api.index'}}Introduction<div class="arrow-down"></div>{{/linkTo}}{{/li}}
+        {{#li}}{{#linkTo 'api.apps_list'}}App List<div class="arrow-down"></div>{{/linkTo}}{{/li}}
+        {{#li}}{{#linkTo 'api.app_details'}}App Details<div class="arrow-down"></div>{{/linkTo}}{{/li}}
+        {{#li}}{{#linkTo 'api.app_reviews'}}App Reviews<div class="arrow-down"></div>{{/linkTo}}{{/li}}
+        {{#li}}{{#linkTo 'api.contributing_reviews'}}Contributing Reviews<div class="arrow-down"></div>{{/linkTo}}{{/li}}
+        {{#li}}{{#linkTo 'api.retrieving_a_review'}}Retrieving a Review<div class="arrow-down"></div>{{/linkTo}}{{/li}}
+      </ul>
+    </div>
+  </div>
+  <div class="span9">
+    {{outlet}}
+  </div>
+</div>

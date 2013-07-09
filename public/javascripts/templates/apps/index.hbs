@@ -1,0 +1,16 @@
+<ul id="apps-container">
+{{#each app in controller}}
+  <li>
+    {{#linkTo 'apps.show' app}}
+      <div class="banner">
+        <img {{bindAttr src=app.banner_image_url}} height="125" />
+      </div>
+      <h4 class="name">{{app.name}}</h4>
+      <p class="short-description">{{app.short_description}}</p>
+      <div class="meta">
+        4 stars, 6 reviews
+      </div>
+    {{/linkTo}}
+  </li>
+{{/each}}
+</ul>

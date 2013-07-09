@@ -1,0 +1,15 @@
+<div class="sub-nav-wrapper">
+  <div class="text-center">
+    <ul class="nav nav-pills sub-nav">
+      {{#li}}{{#linkTo 'basics.index'}}Basics<div class="arrow-down"></div>{{/linkTo}}{{/li}}
+      {{#li}}{{#linkTo 'extensions.index'}}Extensions<div class="arrow-down"></div>{{/linkTo}}{{/li}}
+      {{#li}}{{#linkTo 'api.index'}}API<div class="arrow-down"></div>{{/linkTo}}{{/li}}
+    </ul>
+  </div>
+</div>
+
+<div class="bg-light-grey">
+  <div class="container">
+    {{outlet}}
+  </div>
+</div>

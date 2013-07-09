@@ -1,0 +1,17 @@
+<div class="sub-nav-wrapper">
+  <div class="text-center">
+    <ul class="nav nav-pills sub-nav">
+      {{#li}}{{#linkTo 'tutorials.canvas'}}Canvas<div class="arrow-down"></div>{{/linkTo}}{{/li}}
+      {{#li}}{{#linkTo 'tutorials.moodle'}}Moodle<div class="arrow-down"></div>{{/linkTo}}{{/li}}
+      {{#li}}{{#linkTo 'tutorials.blackboard'}}Blackboard<div class="arrow-down"></div>{{/linkTo}}{{/li}}
+      {{#li}}{{#linkTo 'tutorials.sakai'}}Sakai<div class="arrow-down"></div>{{/linkTo}}{{/li}}
+      {{#li}}{{#linkTo 'tutorials.desire2learn'}}Desire2Learn<div class="arrow-down"></div>{{/linkTo}}{{/li}}
+    </ul>
+  </div>
+</div>
+
+<div class="bg-light-grey">
+  <div class="container">
+    {{outlet}}
+  </div>
+</div>

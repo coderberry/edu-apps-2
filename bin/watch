@@ -1,0 +1,4 @@
+#!/bin/bash
+
+fsmonitor -d public/javascripts -p -s '!index.js' '!templates.js' '!application.js' ember build -d &
+fsmonitor -d less -p -s sh bin/build_less.sh

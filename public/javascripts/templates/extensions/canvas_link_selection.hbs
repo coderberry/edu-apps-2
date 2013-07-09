@@ -1,0 +1,62 @@
+<section>
+  <h2 class="page-header">Canvas Link Selection Examples</h2>
+
+  <h3>Introduction</h3>
+  <p>
+    In Canvas you can configure an LTI tool to select LTI launch URLs as module items. See Canvas documentation for more details <a href="https://canvas.instructure.com/doc/api/file.link_selection_tools.html">more information</a>.
+  </p>
+  <p>
+    The examples are very basic, really just enough to get the point of the extension across. If you are interested in seeing more advanced or practical implementations, check out <a href="/index.html">the list of LTI apps on the home page</a>.
+  </p>
+
+  <div class="row-fluid data-row">
+    <span class="span8">
+      <h3>Links in Modules Demo</h3>
+        <p>
+            This app allows the user to pick and insert custom content as link
+            in course modules. When inserting content into a module, if the
+            user
+            picks "External Tools" they'll see the configured app with a
+            "find"
+            icon. Clicking the app will bring up a new dialog where the user
+            can pick/build content (in this case creating a page that shows an
+            image of a fish with a user-specified name for the fish)
+            to be inserted as a page or resource within
+            the current module.
+        </p>
+        <p>
+            Module linking apps can be configured at the course or account
+            level.
+            If the app is configured at the account level,
+            then it will be available for any courses within that account.
+        </p>
+      <a class="label label-info" href="/config/resource_selection.xml">xml
+          configuration</a>
+      <a class="label" href="https://canvas.instructure.com/doc/api/link_selection_tools.html">more
+          information</a>
+    </span>
+    <span class="span4">
+      <img src="/assets/resource_selection_example.png" alt="" class="preview thumbnail">
+    </span>
+  </div>
+
+  <div class="row-fluid data-row">
+    <span class="span8">
+      <h3>Combination Rich Editor Button and Module links Demo</h3>
+        <p>
+            This example shows configuring an app to serve multiple purposes
+            at
+            the same time. In this case, a single app can add both a fish
+            icon to the rich editor, and the ability to add named fish pages
+            to
+            course modules.
+        </p>
+      <a class="label label-info" href="/config/editor_button_and_resource_selection.xml">xml
+          configuration</a>
+      <a class="label" href="https://canvas.instructure.com/doc/api/tools_xml.html">more
+          information</a>
+    </span>
+    <span class="span4">
+    </span>
+  </div>
+</section>

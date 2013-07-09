@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="span3">
+    <div data-spy="affix" data-offset-top="0">
+      <ul class="nav nav-list">
+        {{#li}}{{#linkTo 'extensions.index'}}Introduction{{/linkTo}}{{/li}}
+        <li class="nav-header">Extensions</li>
+        {{#li}}{{#linkTo 'extensions.content'}}Content{{/linkTo}}{{/li}}
+        {{#li}}{{#linkTo 'extensions.result_data'}}Result Data{{/linkTo}}{{/li}}
+        <li class="nav-header">Canvas</li>
+        {{#li}}{{#linkTo 'extensions.canvas_navigation'}}Navigation{{/linkTo}}{{/li}}
+        {{#li}}{{#linkTo 'extensions.canvas_wysiwyg'}}WYSIWYG{{/linkTo}}{{/li}}
+        {{#li}}{{#linkTo 'extensions.canvas_link_selection'}}Link Selection{{/linkTo}}{{/li}}
+        {{#li}}{{#linkTo 'extensions.canvas_homework'}}Homework Submission{{/linkTo}}{{/li}}
+      </ul>
+    </div>
+  </div>
+  <div class="span9">
+    {{outlet}}
+  </div>
+</div>
