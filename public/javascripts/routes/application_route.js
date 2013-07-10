@@ -9,10 +9,10 @@ var ApplicationRoute = Ember.Route.extend({
   events: {
     logout: function() {
       App.AuthManager.reset();
-      this.transitionTo('index');
+      App.FlashQueue.pushFlash('notice', 'You are now logged out');
+      this.transitionTo('session.new');
     }
   }
 });
 
 module.exports = ApplicationRoute;
-

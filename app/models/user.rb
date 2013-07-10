@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
   has_many :api_keys, as: :tokenable 
 
   # validations ...............................................................
-  validates :email, uniqueness: true, format: { with: /.+@.+\..{2,4}/ }
+  validates :email, uniqueness: true, format: { with: /.+@.+\..+/ }
   validates :name, presence: true
-  validates :password, :presence => true, :confirmation => true, :length => {:within => 6..40}, on: :create
+  validates :password, :confirmation => true, :length => {:within => 6..40}, on: :create
 
   # callbacks .................................................................
   # scopes ....................................................................
@@ -19,7 +19,11 @@ class User < ActiveRecord::Base
   # public instance methods ...................................................
 
   def session_api_key
-    api_keys.active.session.first_or_create
+    api_keys.active.session.create
+  end
+
+  def clear_expired_api_keys
+    api_keys.expired.destroy_all
   end
   
   # protected instance methods ................................................

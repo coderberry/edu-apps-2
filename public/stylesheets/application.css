@@ -856,6 +856,11 @@ a.label:hover,a.label:focus,a.badge:hover,a.badge:focus{color:#ffffff;text-decor
 .show{display:block;}
 .invisible{visibility:hidden;}
 .affix{position:fixed;}
+#flash-view{position:fixed;top:81px;width:100%;z-index:20;overflow:hidden;}
+#flash-view #message{color:#fff;font-size:16px;line-height:1.2em;text-align:center;padding:20px 0;}
+#flash-view.is-notice #message{background-color:#6c3;}
+#flash-view.is-alert #message{background-color:#f14247;}
+#flash-view.is-error #message{background-color:#f14247;}
 .navbar-inner{box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none;background:transparent !important;border:none !important;}
 .navbar .nav .dropdown-toggle .caret{margin-top:5px;}
 .navbar .nav>.active>a,.navbar .nav>.active>a:hover,.navbar .nav>.active>a:focus{box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none;}
@@ -891,8 +896,3 @@ form .controls .btn-aside{position:relative;top:-5px;left:10px;}
 .app-details ul.tags li.category{background-color:#a1ddbd;}
 .app-details ul.tags li.education-level{background-color:#fd6737;}
 .app-details ul.tags li.platform{background-color:#49509a;}
-#flash-view{position:fixed;top:87px;width:100%;z-index:20;overflow:hidden;}
-#flash-view #message{color:#fff;font-size:16px;line-height:1.2em;text-align:center;padding:20px 0;}
-#flash-view.notice #message{background-color:#6c3;}
-#flash-view.alert #message{background-color:#f14247;}
-#flash-view.error #message{background-color:#f14247;}

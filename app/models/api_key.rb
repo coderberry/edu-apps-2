@@ -16,28 +16,10 @@ class ApiKey < ActiveRecord::Base
   scope :session, -> { where(scope: 'session') }
   scope :api,     -> { where(scope: 'api') }
   scope :active,  -> { where("expired_at >= ?", Time.now) }
+  scope :expired, -> { where("expired_at < ?", Time.now) }
 
   # additional config .........................................................
   # class methods .............................................................
-
-  # def self.context_for(token)
-  #   api_key = where(:access_token => token).first
-  #   if api_key
-  #     api_key.tokenable
-  #   else
-  #     nil
-  #   end
-  # end
-
-  # def self.user_for(token)
-  #   ctx = context_for(token)
-  #   if ctx && ctx.is_a?(User)
-  #     ctx
-  #   else
-  #     nil
-  #   end
-  # end
-
   # public instance methods ...................................................
 
   def user

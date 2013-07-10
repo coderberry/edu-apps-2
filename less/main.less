@@ -1,4 +1,5 @@
 @import "bootstrap/bootstrap";
+@import "flash";
 
 @bg-gray: #eee;
 
@@ -295,33 +296,4 @@ form {
       &.platform { background-color: #49509a;}
     }
   }
-}
-
-
-
-
-// Flash
-
-#flash-view {
-  position: fixed;
-  top: 87px;
-  width: 100%;
-  z-index: 20;
-  overflow: hidden;
-}
-#flash-view #message {
-  color: #fff;
-  font-size: 16px;
-  line-height: 1.2em;
-  text-align: center;
-  padding: 20px 0;
-}
-#flash-view.notice #message {
-  background-color: #6c3;
-}
-#flash-view.alert #message {
-  background-color: #f14247;
-}
-#flash-view.error #message {
-  background-color: #f14247;
 }
