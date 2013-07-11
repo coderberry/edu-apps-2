@@ -1,0 +1,18 @@
+<div class="settings-content">
+  <div class="settings-header clearfix">
+    <h4>Profile</h4>
+  </div>
+
+  <form {{action save on="submit"}} class="chunky-form">
+    <div {{bindAttr class=":controls errors.name:error"}}>
+      <label>Full Name</label>
+      {{input type="text" value=name placeholder="Full Name"}}
+      <small class="below">{{errors.name}}</small>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <button class="btn btn-primary" type="submit">Save Changes</button>
+      </div>
+    </div>
+  </form>
+</div>

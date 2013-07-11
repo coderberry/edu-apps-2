@@ -3,12 +3,14 @@ class User < ActiveRecord::Base
   # includes ..................................................................
   # security (i.e. attr_accessible) ...........................................
   # relationships .............................................................
-  has_many :api_keys, as: :tokenable 
+  has_many :memberships, dependent: :destroy
+  has_many :organizations, through: :memberships
+  has_many :api_keys, as: :tokenable
 
   # validations ...............................................................
   validates :email, uniqueness: true, format: { with: /.+@.+\..+/ }
   validates :name, presence: true
-  validates :password, :confirmation => true, :length => {:within => 6..40}, on: :create
+  validates :password, presence: { on: :create }, length: { minimum: 6, allow_blank: true }
 
   # callbacks .................................................................
   # scopes ....................................................................
@@ -24,6 +26,10 @@ class User < ActiveRecord::Base
 
   def clear_expired_api_keys
     api_keys.expired.destroy_all
+  end
+
+  def can_manage?(organization)
+    !!memberships.where(organization_id: organization.id).where(is_admin: true).exists?
   end
   
   # protected instance methods ................................................

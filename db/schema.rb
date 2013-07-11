@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130709155840) do
+ActiveRecord::Schema.define(version: 20130710170455) do
 
   create_table "api_keys", force: true do |t|
     t.integer  "tokenable_id"
@@ -22,13 +22,33 @@ ActiveRecord::Schema.define(version: 20130709155840) do
     t.datetime "created_at"
   end
 
+  add_index "api_keys", ["access_token"], name: "index_api_keys_on_access_token", unique: true
+
+  create_table "memberships", force: true do |t|
+    t.integer  "organization_id"
+    t.integer  "user_id"
+    t.boolean  "is_admin"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "memberships", ["organization_id"], name: "index_memberships_on_organization_id"
+  add_index "memberships", ["user_id"], name: "index_memberships_on_user_id"
+
+  create_table "organizations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
-    t.string   "username"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end

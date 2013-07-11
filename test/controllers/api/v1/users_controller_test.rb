@@ -80,6 +80,30 @@ module Api
         results = JSON.parse(response.body)
         assert results['users'].size == 2
       end
+
+      test "#update with invalid data" do
+        joe = users(:joe)
+        api_key = joe.session_api_key
+        put 'update', { id: joe.id, user: { name: '' }}, { 'Authorization' => "Bearer #{api_key.access_token}" }
+        assert response.status == 422
+      end
+
+      test "#update with valid data" do
+        joe = users(:joe)
+        api_key = joe.session_api_key
+        put 'update', { id: joe.id, user: { name: 'Hillary Swank' }}, { 'Authorization' => "Bearer #{api_key.access_token}" }
+        assert response.status == 200
+      end
+
+      test "#update with valid data but try to set password (hack hack hack)" do
+        joe = users(:joe)
+        api_key = joe.session_api_key
+        put 'update', { id: joe.id, user: { name: 'Hillary Swank', password: 'muhahaha', password_confirmation: 'muhahaha' }}, { 'Authorization' => "Bearer #{api_key.access_token}" }
+        assert response.status == 200
+        joe.reload
+        assert joe.name == 'Hillary Swank'
+        assert !joe.authenticate('muhahaha')
+      end
     end
   end
 end

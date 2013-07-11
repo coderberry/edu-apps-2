@@ -1,6 +1,6 @@
-var ApiKey = DS.Model.extend({
-  access_token: DS.attr('string'),
-  user:         DS.belongsTo('App.User')
+var ApiKey = Ember.Object.extend({
+  access_token: '',
+  user:         null
 });
 
 module.exports = ApiKey;

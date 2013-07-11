@@ -1,0 +1,28 @@
+<div class="settings-content">
+  <div class="settings-header clearfix">
+    <h4>Change Password</h4>
+  </div>
+
+  <form {{action save on="submit"}} class="chunky-form">
+    <div {{bindAttr class=":controls errors.existing_password:error"}}>
+      <label>Old Password</label>
+      {{input type="password" value=existing_password placeholder="Current Password"}}
+      <small class="below">{{errors.existing_password}}</small>
+    </div>
+    <div {{bindAttr class=":controls errors.password:error"}}>
+      <label>New Password</label>
+      {{input type="password" value=password placeholder="New Password"}}
+      <small class="below">{{errors.password}}</small>
+    </div>
+    <div {{bindAttr class=":controls errors.password_confirmation:error"}}>
+      <label>Confirm New Password</label>
+      {{input type="password" value=password_confirmation placeholder="Confirm New Password"}}
+      <small class="below">{{errors.password_confirmation}}</small>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <button class="btn btn-primary" type="submit">Update Password</button>
+      </div>
+    </div>
+  </form>
+</div>

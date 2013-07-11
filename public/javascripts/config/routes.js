@@ -42,6 +42,13 @@ App.Router.map(function() {
   this.resource('users', function() {
     this.route('new');
     this.route('show');
+  });
+  this.resource('settings', function() {
+    this.route('profile');
+    this.route('account_settings');
+    this.route('memberships', { path: '/organizations' });
+    this.route('memberships_new', { path: '/organizations/new' });
+    this.route('membership', { path: '/organizations/:membership_id' })
   })
 });
 

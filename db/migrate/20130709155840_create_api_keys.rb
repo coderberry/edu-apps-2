@@ -8,5 +8,7 @@ class CreateApiKeys < ActiveRecord::Migration
       t.datetime :expired_at
       t.datetime :created_at
     end
+
+    add_index :api_keys, :access_token, unique: true
   end
 end

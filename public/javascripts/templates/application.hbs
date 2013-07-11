@@ -20,7 +20,7 @@
 
           <ul class="nav nav-pills pull-right">
             {{#if isAuthenticated}}
-              {{#li}}{{#linkTo 'users.show'}}{{currentUser.email}}{{/linkTo}}{{/li}}
+              {{#li}}{{#linkTo 'settings.profile'}}{{currentUser.email}}{{/linkTo}}{{/li}}
               <li><a href="#" {{action "logout" on="click"}}>Logout</a></li>
             {{else}}
               {{#li}}{{#linkTo 'session.new'}}Login{{/linkTo}}{{/li}}

@@ -25,7 +25,7 @@ App.FlashController.addObserver('content', function() {
   if (this.get("content")) {
     if (this.get("view")) {
       this.get("view").show();
-      return setTimeout(this.clearContent, 4000, this.get("content"), this.get("view"));
+      return setTimeout(this.clearContent, 2500, this.get("content"), this.get("view"));
     }
   } else {
     return App.FlashQueue.contentChanged();

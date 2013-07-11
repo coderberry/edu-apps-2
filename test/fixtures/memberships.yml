@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+instructure:
+  organization: instructure
+  user: joe
+  is_admin: true
+
+urug:
+  organization: urug
+  user: joe
+  is_admin: false

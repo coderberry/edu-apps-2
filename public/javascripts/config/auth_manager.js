@@ -24,7 +24,7 @@ var AuthManager = Ember.Object.extend({
       headers: { 'Authorization': 'Bearer ' + accessToken }
     });
     var user = User.find(userId);
-    this.set('apiKey', App.ApiKey.createRecord({
+    this.set('apiKey', App.ApiKey.create({
       accessToken: accessToken,
       user: user
     }));

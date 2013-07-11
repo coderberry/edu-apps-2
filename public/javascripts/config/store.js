@@ -1,5 +1,7 @@
+var NestedRESTAdapter = require('./nested_rest_adapter');
+
 module.exports = DS.Store.extend({
-  adapter: DS.RESTAdapter.create({
+  adapter: NestedRESTAdapter.create({
     namespace: 'api/v1'
   })
 });
