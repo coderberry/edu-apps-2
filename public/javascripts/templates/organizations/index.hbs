@@ -1,0 +1,23 @@
+<div class="settings-content">
+  <div class="settings-header clearfix">
+    <small>{{#linkTo 'organizations.new' classNames="pull-right"}}Add New Organization{{/linkTo}}</small>
+    <h4>Organizations</h4>
+  </div>
+
+  <table class="table table-striped">
+    <tbody>
+      {{#each organization in controller}}
+      <tr>
+        <td>{{#linkTo 'organizations.show' organization}}{{organization.name}}{{/linkTo}}</td>
+        <td>
+          <a href="#" {{action "deleteMembership" organization}} class="btn btn-mini pull-right">Leave</a>
+        </td>
+      </tr>
+      {{else}}
+      <tr>
+        <td>You are not a member of any organizations yet. You can either create an organization or be invited to one.</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

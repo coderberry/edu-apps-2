@@ -1,0 +1,29 @@
+<div class="settings-content">
+  <div class="settings-header clearfix">
+    <small>{{#linkTo 'organizations.index' classNames="pull-right"}}&laquo; Back to Organizations{{/linkTo}}</small>
+    <h4>{{name}}</h4>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Admin?</th>
+        <th>{{#linkTo 'organizations.add_member' this class="pull-right btn btn-primary"}}Add Member{{/linkTo}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each membership in memberships}}
+        <tr>
+          <td>{{membership.user.name}}</td>
+          <td>{{membership.user.email}}</td>
+          <td>{{tf membership.is_admin}}</td>
+          <td>
+            <button class="btn btn-small pull-right" {{action 'removeMembership' membership}}><i class="icon-trash"></i></button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

@@ -8,7 +8,7 @@
     <tbody>
       {{#each membership in controller}}
       <tr>
-        <td>{{#linkTo 'settings.membership' membership}}{{membership.organization.name}}{{/linkTo}}</td>
+        <td>{{#linkTo 'settings.membership' membership.organization}}{{membership.organization.name}}{{/linkTo}}</td>
         <td>{{membership.is_admin}}</td>
         <td>
           <a href="#" {{action "deleteMembership" membership}} class="btn btn-mini pull-right">Leave</a>

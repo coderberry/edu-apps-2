@@ -49,7 +49,14 @@ App.Router.map(function() {
     this.route('api_access');
     this.route('memberships', { path: '/organizations' });
     this.route('memberships_new', { path: '/organizations/new' });
-    this.route('membership', { path: '/organizations/:membership_id' })
-  })
+    this.route('membership', { path: '/organizations/:organization_id' })
+  });
+
+  this.resource('organizations', function() {
+    this.route('index', { path: '/' });
+    this.route('show', { path: '/:organization_id' });
+    this.route('add_member', { path: '/:organization_id/add_member' });
+    this.route('new');
+  });
 });
 

@@ -1,6 +1,6 @@
 var AuthManager = require('../../config/auth_manager');
 
-var SettingsMembershipController = Ember.ObjectController.extend({
+var SettingsMembershipController = Ember.ArrayController.extend({
 
   currentUser: function() {
     return AuthManager.get('apiKey.user');
@@ -15,39 +15,41 @@ var SettingsMembershipController = Ember.ObjectController.extend({
     if (data.email.length > 0) {
       var self = this;
 
-      var request = $.ajax({
-        type: 'POST',
-        url: '/api/v1/organizations/' + organization.get('id') + '/add_member',
-        data: data
-      });
 
-      request.done(function( msg ) {
-        self.set('email', null);
-        self.set('is_admin', null);
 
-        App.FlashQueue.pushFlash('notice', 'Added ' + data.email + ' successfully');
-        debugger;
-      });
+      // var request = $.ajax({
+      //   type: 'POST',
+      //   url: '/api/v1/organizations/' + organization.get('id') + '/add_member',
+      //   data: data
+      // });
 
-      request.fail(function(jqxhr) {
-        switch(jqxhr.status) {
-          case 401:
-            App.FlashQueue.pushFlash('error', 'You do not have permission to do this');
-            break;
+      // request.done(function( msg ) {
+      //   self.set('email', null);
+      //   self.set('is_admin', null);
 
-          case 404:
-            App.FlashQueue.pushFlash('warning', 'You do not have access to this organization');
-            break;
+      //   App.FlashQueue.pushFlash('notice', 'Added ' + data.email + ' successfully');
+      //   debugger;
+      // });
 
-          case 422:
-            var msg = JSON.parse(jqxhr.responseText);
-            App.FlashQueue.pushFlash('warning', msg.message);
-            break;
+      // request.fail(function(jqxhr) {
+      //   switch(jqxhr.status) {
+      //     case 401:
+      //       App.FlashQueue.pushFlash('error', 'You do not have permission to do this');
+      //       break;
 
-          default:
-            App.FlashQueue.pushFlash('error', 'Unexpected response from server');
-        }
-      });
+      //     case 404:
+      //       App.FlashQueue.pushFlash('warning', 'You do not have access to this organization');
+      //       break;
+
+      //     case 422:
+      //       var msg = JSON.parse(jqxhr.responseText);
+      //       App.FlashQueue.pushFlash('warning', msg.message);
+      //       break;
+
+      //     default:
+      //       App.FlashQueue.pushFlash('error', 'Unexpected response from server');
+      //   }
+      // });
 
     }
   },

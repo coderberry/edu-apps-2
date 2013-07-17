@@ -5,9 +5,10 @@ module Api
       
       # curl 'http://localhost:3000/api/v1/memberships' -H 'Authorization: Bearer 40a3d4f1f54bc2f90068242b826d08c4'
       def index
-        memberships = Membership.where("1 = 1")
-        memberships.where(organization_id: params[:organization_id]) if params[:organization_id].present?
-        memberships.where(user_id: params[:user_id]) if params[:user_id].present?
+        memberships = Membership.order(:id)
+        memberships = memberships.where(organization_id: params[:organization_id]) if params[:organization_id].present?
+        memberships = memberships.where(user_id: params[:user_id]) if params[:user_id].present?
+        memberships = memberships.limit(params[:limit]) if params[:limit].present?
         render json: memberships.load
       end
 
