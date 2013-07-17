@@ -1,8 +1,8 @@
-var MembershipOrganizationForm = require("../../components/membership_organization_form");
+var Organization = require("../../models/organization");
 
 var SettingsMembershipsNewRoute = Ember.Route.extend({
   model: function() {
-    return new MembershipOrganizationForm;
+    return Organization.create();
   }
 });
 

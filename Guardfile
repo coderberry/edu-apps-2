@@ -25,3 +25,7 @@ end
 guard :embertools, debug: true, no_cleanup: false, out_file: 'public/javascripts/application.js'  do
   watch(%r{^public\/javascripts\/(?!index\.js)(?!templates\.js)(?!application\.js).*})
 end
+
+guard :lessc, :in_file => 'less/main.less', :out_file => 'public/stylesheets/application.css', :compress => true do
+  watch(%r{^.*\.less$})
+end

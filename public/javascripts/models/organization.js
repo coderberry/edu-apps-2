@@ -1,7 +1,15 @@
-var Organization = DS.Model.extend({
-  name: DS.attr('string'),
+var Organization = Ember.Model.extend({
+  // attributes
+  name: Ember.attr(),
 
-  memberships: DS.hasMany('App.Membership', { embedded: 'always' })
+  // associations
+  memberships: Ember.hasMany('App.Membership', { key: 'membership_ids' })
+
+}).reopenClass({
+  rootKey:       'organization',
+  collectionKey: 'organizations',
+  url:           '/api/v1/organizations',
+  adapter:       Ember.RESTAdapter.create()
 });
 
 module.exports = Organization;

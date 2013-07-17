@@ -36,7 +36,7 @@ var SettingsMembershipController = Ember.ObjectController.extend({
             break;
 
           case 404:
-            App.FlashQueue.pushFlash('warning', 'You do not access to this organization');
+            App.FlashQueue.pushFlash('warning', 'You do not have access to this organization');
             break;
 
           case 422:

@@ -7,6 +7,7 @@ var UsersNewController = Ember.ObjectController.extend({
 
     $.post('/api/v1/users', data, function(results) {
       App.AuthManager.authenticate(results.api_key.access_token, results.api_key.user_id);
+      App.FlashQueue.pushFlash('notice', 'You are now a registered user!');
       router.transitionTo('index');
 
     }).fail(function(jqxhr, textStatus, error ) {

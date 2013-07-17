@@ -4,4 +4,3 @@ var ApiKey = Ember.Object.extend({
 });
 
 module.exports = ApiKey;
-

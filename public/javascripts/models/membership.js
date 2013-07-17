@@ -1,14 +1,16 @@
-var Membership = DS.Model.extend({
-  is_admin:     DS.attr('boolean'),
-  user:         DS.belongsTo('App.User'),
-  organization: DS.belongsTo('App.Organization')
-});
+var Membership = Ember.Model.extend({
+  // attributes
+  is_admin:     Ember.attr(),
 
-Membership.reopenClass({
-  url: function() {
-    debugger;
-    return 'memberships';
-  }.property()
+  // associations
+  user:         Ember.belongsTo('App.User', { key: 'user_id' }),
+  organization: Ember.belongsTo('App.Organization', { key: 'organization_id' })
+
+}).reopenClass({
+  rootKey:       'membership',
+  collectionKey: 'memberships',
+  url:           '/api/v1/memberships',
+  adapter:       Ember.RESTAdapter.create()
 });
 
 module.exports = Membership;

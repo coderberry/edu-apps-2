@@ -9,6 +9,7 @@ gem 'active_model_serializers'
 group :development do
   gem 'guard-embertools', '~> 0.2.1'
   gem 'guard-rspec'
+  gem 'guard-lessc', '~> 0.0.5'
 end
 
 group :test do

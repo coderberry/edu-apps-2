@@ -58,6 +58,9 @@ GEM
     guard-embertools (0.2.1)
       colorize
       guard
+    guard-lessc (0.0.5)
+      colorize
+      guard
     guard-rspec (3.0.2)
       guard (>= 1.8)
       rspec (~> 2.13)
@@ -154,6 +157,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   factory_girl_rails (~> 4.0)
   guard-embertools (~> 0.2.1)
+  guard-lessc (~> 0.0.5)
   guard-rspec
   pry
   pry-debugger

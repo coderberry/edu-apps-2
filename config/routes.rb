@@ -3,6 +3,9 @@ EduApps::Application.routes.draw do
     namespace :v1 do
       resources :api_keys, except: [:new, :edit]
 
+      # get 'users/:user_id/memberships' => 'memberships#index'
+      # get 'organizations/:organization_id/memberships' => 'memberships#index'
+
       resources :users, except: [:new, :edit] do
         collection do
           put 'update_password'

@@ -19,7 +19,7 @@ var SessionNewController = Ember.ObjectController.extend({
       }
 
     }).fail(function(jqxhr, textStatus, error ) {
-      if (jqxhr.status === 401) {
+      if (jqxhr.status === 401 || jqxhr.status === 404) {
         App.FlashQueue.pushFlash('error', 'Invalid email and/or password');
       }
     });;

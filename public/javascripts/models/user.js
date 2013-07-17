@@ -1,14 +1,17 @@
-var User = DS.Model.extend({
-  name:     DS.attr('string'),
-  email:    DS.attr('string'),
+var User = Ember.Model.extend({
+  // attributes
+  name:     Ember.attr(),
+  email:    Ember.attr(),
+  errors:   {},
 
-  memberships: DS.hasMany('App.Membership'),
+  // associations
+  memberships: Ember.hasMany('App.Membership', { key: 'membership_ids' })
 
-  errors: {}
-});
-
-User.reopenClass({ 
-  url: 'user'
+}).reopenClass({
+  rootKey:       'user',
+  collectionKey: 'users',
+  url:           '/api/v1/users',
+  adapter:       Ember.RESTAdapter.create()
 });
 
 module.exports = User;

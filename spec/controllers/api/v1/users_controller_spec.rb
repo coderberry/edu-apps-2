@@ -28,7 +28,7 @@ describe Api::V1::UsersController do
     it "with valid token" do
       get 'index', {}, { 'Authorization' => "Bearer #{@joe_key.access_token}" }
       results = JSON.parse(response.body)
-      results['users'].should have(3).things
+      results['users'].should have(1).thing
     end
   end
 

@@ -51,11 +51,11 @@ var AuthManager = Ember.Object.extend({
   }.observes('apiKey')
 });
 
-DS.rejectionHandler = function(reason) {
-  if (reason.status === 401) {
-    App.AuthManager.reset();
-  }
-  throw reason;
-};
+// DS.rejectionHandler = function(reason) {
+//   if (reason.status === 401) {
+//     App.AuthManager.reset();
+//   }
+//   throw reason;
+// };
 
 module.exports = AuthManager;
