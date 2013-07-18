@@ -1,0 +1,25 @@
+<div class="settings-content">
+  <div class="settings-header clearfix">
+    <h4>
+      <button {{action "addToken"}} class="btn btn-small pull-right"><i class="icon-plus"></i> Create new token</button>
+      Personal API Access Tokens<br>
+      <small>These tokens are like passwords; guard them carefully.</small>
+    </h4>
+  </div>
+
+  <table class="table table-striped">
+    <tbody>
+    {{#each apiKey in controller}}
+      <tr>
+        <td>
+          <button {{action "deleteToken" apiKey}} class="btn btn-small pull-right"><i class="icon-remove"></i> Delete</button>
+          <code>{{apiKey.access_token}}</code>
+        </td>
+      </tr>
+    {{else}}
+      <tr><td>Click 'Create new token' above to add an API token</td></tr>
+    {{/each}}
+    </tbody>
+  </table>
+
+</div>

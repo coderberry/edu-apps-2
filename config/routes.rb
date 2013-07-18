@@ -1,7 +1,7 @@
 EduApps::Application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :api_keys, except: [:new, :edit]
+      resources :api_keys, except: [:new, :edit, :update]
 
       # get 'users/:user_id/memberships' => 'memberships#index'
       # get 'organizations/:organization_id/memberships' => 'memberships#index'

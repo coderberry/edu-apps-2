@@ -8,11 +8,15 @@ var Organization = Ember.Model.extend({
   memberships: Ember.hasMany('App.Membership', { key: 'membership_ids' }),
 
   currentMembership: function() {
-    return Membership.fetch({ user_id: App.AuthManager.get('apiKey.user.id'), organization_id: this.get('id'), limit: 1 }).then(
-      function(results) {
-        return results.get('firstObject');
-      }
-    );
+    // FIX ME!!!
+    // var userId = App.AuthManager.get('apiKey.user.id');
+    // this.get('memberships').forEach(function(membership) {
+    //   membership.reload();
+    //   console.log(membership.user.id + ' === ' + userId);
+    //   if (membership.user.id === userId) {
+    //     return membership;
+    //   }
+    // });
   }.property()
 
 }).reopenClass({
