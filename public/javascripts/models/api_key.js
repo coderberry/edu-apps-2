@@ -1,6 +1,7 @@
 var ApiKey = Ember.Model.extend({
-  access_token: Ember.attr(),
-  user:         null // We don't need to load the relationship
+  access_token:    Ember.attr(),
+  organization_id: Ember.attr(),
+  user:            null // We don't need to load the relationship
 
 }).reopenClass({
   rootKey:       'api_key',

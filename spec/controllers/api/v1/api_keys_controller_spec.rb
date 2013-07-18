@@ -19,10 +19,20 @@ describe Api::V1::ApiKeysController do
   end
 
   describe "#create" do
-    it "should create a new api token" do
+    it "should create a new api token for a user" do
       post 'create', {}, { 'Authorization' => "Bearer #{@good_key.access_token}" }
       results = JSON.parse(response.body)
       results['api_key']['user_id'].should == @joe.id
+      results['api_key']['access_token'].should match /\S{32}/
+    end
+
+    it "should create a new api token for an organization" do
+      organization = @joe.organizations.create!(name: 'My Org')
+      organization.memberships.where(user_id: @joe.id).first.update_attribute(:is_admin, true)
+      post 'create', { api_key: { organization_id: organization.id } }, { 'Authorization' => "Bearer #{@good_key.access_token}" }
+      results = JSON.parse(response.body)
+      puts results.inspect
+      results['api_key']['organization_id'].should == organization.id
       results['api_key']['access_token'].should match /\S{32}/
     end
   end

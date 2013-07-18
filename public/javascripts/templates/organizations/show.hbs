@@ -4,6 +4,15 @@
     <h4>{{name}}</h4>
   </div>
 
+  <div class="well well-small clearfix">
+    <button {{action "regenerateToken"}} class="btn btn-small pull-right"><i class="icon-plus"></i> Regenerate API Token</button>
+    {{#if access_token}}
+      <code>{{access_token}}</code>
+    {{else}}
+      Click 'Regenereate API Token' to create a token
+    {{/if}}
+  </div>
+
   <form {{action "addMember" organization on="submit"}}>
     <table class="table table-striped">
       <thead>

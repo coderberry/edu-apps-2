@@ -26,6 +26,16 @@ class ApiKey < ActiveRecord::Base
     tokenable.is_a?(User) ? tokenable : nil 
   end
 
+  def organization
+    tokenable.is_a?(Organization) ? tokenable : nil 
+  end
+
+  def expire
+    unless expired_at > Time.now
+      update_attribute(:expired_at, Time.now)
+    end
+  end
+
   # protected instance methods ................................................
   # private instance methods ..................................................
 

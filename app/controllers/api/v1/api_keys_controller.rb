@@ -9,8 +9,24 @@ module Api
       end
 
       def create
-        api_key = current_user.api_keys.active.api.create
-        render json: api_key, status: 201
+        organization_id = params[:api_key].try(:[], :organization_id)
+        if organization_id.present?
+          organization = Organization.where(id: organization_id).first
+          if organization
+            if current_user.can_manage?(organization)
+              organization.api_keys.map(&:expire)
+              api_key = organization.api_keys.active.api.create
+              render json: api_key, status: 201
+            else
+              render json: {}, status: 401 and return
+            end
+          else
+            render json: {}, status: 404 and return
+          end
+        else
+          api_key = current_user.api_keys.active.api.create
+          render json: api_key, status: 201
+        end
       end
 
       def destroy

@@ -1,8 +1,10 @@
 var Membership = require("./membership");
+var ApiKey = require("./api_key");
 
 var Organization = Ember.Model.extend({
   // attributes
   name: Ember.attr(),
+  access_token: Ember.attr(),
 
   // associations
   memberships: Ember.hasMany('App.Membership', { key: 'membership_ids' }),
