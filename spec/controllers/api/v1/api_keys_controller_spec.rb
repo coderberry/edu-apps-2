@@ -29,7 +29,7 @@ describe Api::V1::ApiKeysController do
     it "should create a new api token for an organization" do
       organization = @joe.organizations.create!(name: 'My Org')
       organization.memberships.where(user_id: @joe.id).first.update_attribute(:is_admin, true)
-      post 'create', { api_key: { organization_id: organization.id } }, { 'Authorization' => "Bearer #{@good_key.access_token}" }
+      post 'create', { organization_id: organization.id }, { 'Authorization' => "Bearer #{@good_key.access_token}" }
       results = JSON.parse(response.body)
       puts results.inspect
       results['api_key']['organization_id'].should == organization.id

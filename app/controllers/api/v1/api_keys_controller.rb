@@ -9,7 +9,7 @@ module Api
       end
 
       def create
-        organization_id = params[:api_key].try(:[], :organization_id)
+        organization_id = params[:organization_id]
         if organization_id.present?
           organization = Organization.where(id: organization_id).first
           if organization

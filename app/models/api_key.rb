@@ -30,8 +30,12 @@ class ApiKey < ActiveRecord::Base
     tokenable.is_a?(Organization) ? tokenable : nil 
   end
 
+  def expired?
+    expired_at < Time.now
+  end
+
   def expire
-    unless expired_at > Time.now
+    unless self.expired_at < Time.now
       update_attribute(:expired_at, Time.now)
     end
   end

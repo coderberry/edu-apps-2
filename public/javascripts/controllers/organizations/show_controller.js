@@ -3,9 +3,10 @@ var ApiKey = require('../../models/api_key');
 var OrganizationsShowController = Ember.ObjectController.extend({
 
   regenerateToken: function() {
-    var apiKey = ApiKey.create({ organization_id: this.get('model.id') });
-    apiKey.save();
-    this.get('model').reload();
+    var self = this;
+    $.post('/api/v1/api_keys', { organization_id: this.get('model.id') }, function(data) {
+      self.get('model').reload();
+    })
   },
 
   addMember: function() {
