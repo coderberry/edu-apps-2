@@ -3,10 +3,9 @@ var ApiKey = require('../../models/api_key');
 var OrganizationsShowController = Ember.ObjectController.extend({
 
   regenerateToken: function() {
-    var self = this;
     $.post('/api/v1/api_keys', { organization_id: this.get('model.id') }, function(data) {
-      self.get('model').reload();
-    })
+      this.get('model').reload();
+    }.bind(this))
   },
 
   addMember: function() {
@@ -16,8 +15,6 @@ var OrganizationsShowController = Ember.ObjectController.extend({
     }
 
     if (data.email.length > 0) {
-      var self = this;
-
       var request = $.ajax({
         type: 'POST',
         url: '/api/v1/organizations/' + this.get('id') + '/add_member',
@@ -30,7 +27,7 @@ var OrganizationsShowController = Ember.ObjectController.extend({
 
         App.FlashQueue.pushFlash('notice', 'Added ' + data.email + ' successfully');
         self.get('model').reload();
-      });
+      }.bind(this));
 
       request.fail(function(jqxhr) {
         switch(jqxhr.status) {
@@ -56,7 +53,6 @@ var OrganizationsShowController = Ember.ObjectController.extend({
   },
 
   removeMembership: function(membership) {
-    var self = this;
     var name = membership.get('user.name');
     if (!confirm("Are you sure you want to remove " + name + "?")) return;
 
@@ -65,7 +61,7 @@ var OrganizationsShowController = Ember.ObjectController.extend({
         // console.log("FOOOOO", this);
         App.FlashQueue.pushFlash('notice', 'You have successfully removed ' + name + ' from the organization.');
         self.get('model').reload(); // self.transitionToRoute('organizations.show', self);
-      }
+      }.bind(this)
     );
   }
 });

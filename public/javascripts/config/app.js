@@ -7,5 +7,5 @@ require('../vendor/ember-model');
 // Ember.LOG_BINDINGS = true;
 
 var App = window.App = Ember.Application.create({ LOG_TRANSITIONS: true });
-require('../components/flash');
+require('../lib/flash');
 module.exports = App;

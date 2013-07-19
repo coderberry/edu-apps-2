@@ -5,9 +5,12 @@
   </div>
 
   <div class="well well-small clearfix">
-    <button {{action "regenerateToken"}} class="btn btn-small pull-right"><i class="icon-plus"></i> Regenerate API Token</button>
+    <button {{action "regenerateToken"}} class="btn pull-right">Regenerate API Token</button>
     {{#if access_token}}
-      <code>{{access_token}}</code>
+      <div class="input-append">
+        <span class="span4 uneditable-input">{{access_token}}</span>
+        {{#zeroClipboard data-clipboard-textBinding="access_token"}}<i class="icon-copy"></i>{{/zeroClipboard}}
+      </div>
     {{else}}
       Click 'Regenereate API Token' to create a token
     {{/if}}

@@ -1,4 +1,4 @@
-var UserPasswordForm = require('../../components/user_password_form');
+var UserPasswordForm = require('../../lib/user_password_form');
 var AuthenticatedRoute = require('../authenticated_route');
 
 var SettingsAccountSettingsRoute = AuthenticatedRoute.extend({
