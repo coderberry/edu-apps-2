@@ -13,7 +13,11 @@
       <tr>
         <td>
           <button {{action "deleteToken" apiKey}} class="btn btn-small pull-right"><i class="icon-remove"></i> Delete</button>
-          <code>{{apiKey.access_token}}</code>
+
+          <div class="input-append">
+            <span class="span4 uneditable-input">{{apiKey.access_token}}</span>
+            {{#zeroClipboard data-clipboard-textBinding="apiKey.access_token"}}<i class="icon-copy"></i>{{/zeroClipboard}}
+          </div>
         </td>
       </tr>
     {{else}}
