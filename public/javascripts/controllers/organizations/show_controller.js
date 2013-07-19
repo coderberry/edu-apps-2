@@ -3,6 +3,8 @@ var ApiKey = require('../../models/api_key');
 var OrganizationsShowController = Ember.ObjectController.extend({
 
   regenerateToken: function() {
+    if (!confirm("Are you sure? By regenerating the token, you will invalidate the current token (if exists)")) return;
+
     $.post('/api/v1/api_keys', { organization_id: this.get('model.id') }, function(data) {
       this.get('model').reload();
     }.bind(this))

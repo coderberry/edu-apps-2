@@ -1,6 +1,7 @@
+var AuthenticatedRoute = require('../authenticated_route');
 var Organization = require("../../models/organization");
 
-var OrganizationsNewRoute = Ember.Route.extend({
+var OrganizationsNewRoute = AuthenticatedRoute.extend({
   model: function() {
     return Organization.create();
   }

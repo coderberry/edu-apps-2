@@ -1169,4 +1169,5 @@ form .controls .btn-aside{position:relative;top:-5px;left:10px}
 .app-details ul.tags li.category{background-color:#a1ddbd}
 .app-details ul.tags li.education-level{background-color:#fd6737}
 .app-details ul.tags li.platform{background-color:#49509a}
-.well-small{border:0;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}.well-small input{margin-bottom:0}
+.well-small{border:0;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}.well-small .input-append,.well-small .input-prepend{margin-bottom:0}
+.well-small input{margin-bottom:0}

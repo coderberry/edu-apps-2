@@ -1,8 +1,13 @@
+var AuthenticatedRoute = require('../authenticated_route');
 var Organization = require('../../models/organization');
 
-var OrganizationsShowRoute = Ember.Route.extend({
+var OrganizationsShowRoute = AuthenticatedRoute.extend({
   model: function(params) {
-    return Organization.find(params.organization_id);
+    if (params.organization_id === 'undefined') {
+      this.transitionTo('organizations.index');
+    } else {
+      return Organization.find(params.organization_id);
+    }
   }
 });
 

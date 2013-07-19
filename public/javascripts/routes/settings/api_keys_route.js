@@ -1,6 +1,7 @@
+var AuthenticatedRoute = require('../authenticated_route');
 var ApiKey = require('../../models/api_key');
 
-var SettingsApiKeysRoute = Ember.Route.extend({
+var SettingsApiKeysRoute = AuthenticatedRoute.extend({
   model: function() {
     return ApiKey.find();
   }
