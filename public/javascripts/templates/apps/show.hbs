@@ -1,2 +1,29 @@
-<h2>apps/show</h2>
+<div class="row-fluid">
+  <div class="span9">
+    <section class="app-details">
+      <div class="row-fluid">
+        <div class="span5">
+          <img {{bindAttr src=banner_image_url}} height="125" />
+        </div>
+        <div class="span7">
+          <h2>{{name}}</h2>
+          <small class="author">by {{#linkTo 'apps'}}{{author_name}}{{/linkTo}}</small>
+          <ul class="tags">
+            {{#each tag in tags}}
+              <li {{bindAttr class="tag.context"}}>{{tag.name}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      <div class="description">
+        {{description}}
+      </div>
+    </section>
+  </div>
+  <div class="span3">
+    <div class="well">
+      asdfasdf
+    </div>
+  </div>
+</div>
 

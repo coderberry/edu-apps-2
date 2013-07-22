@@ -5,14 +5,18 @@
   </div>
 
   <div class="well well-small clearfix">
-    <button {{action "regenerateToken"}} class="btn pull-right">Regenerate API Token</button>
+    {{#if currentMembership.is_admin}}
+      <button {{action "regenerateToken"}} class="btn pull-right">Regenerate API Token</button>
+    {{/if}}
+
     {{#if access_token}}
-      <div class="input-append">
-        <span class="span4 uneditable-input">{{access_token}}</span>
-        {{#zeroClipboard data-clipboard-textBinding="access_token"}}<i class="icon-copy"></i>{{/zeroClipboard}}
-      </div>
+      {{edu-clipboard text=access_token}}
     {{else}}
-      Click 'Regenereate API Token' to create a token
+      {{#if currentMembership.is_admin}}
+        Click 'Regenereate API Token' to create a token
+      {{else}}
+        <div class="text-center">API Token has not yet been generated. Please contact the organization administrator</div>
+      {{/if}}
     {{/if}}
   </div>
 
@@ -23,23 +27,29 @@
           <th>Name</th>
           <th>Email</th>
           <th>Admin?</th>
-          <th>&nbsp;</th>
+          {{#if currentMembership.is_admin}}
+            <th>&nbsp;</th>
+          {{/if}}
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td colspan="2">{{input type="text" value=newEmail placeholder="Add by email address" classNames="wide"}}</td>
-          <td>{{view App.ToggleSwitchView checkedBinding="newIsAdmin"}}</td>
-          <td><button type="submit" class="btn btn-small pull-right"><i class="icon-plus"></i> Add</button></td>
-        </tr>
+        {{#if currentMembership.is_admin}}
+          <tr>
+            <td colspan="2">{{input type="text" value=newEmail placeholder="Add by email address" classNames="wide"}}</td>
+            <td>{{view App.ToggleSwitchView checkedBinding="newIsAdmin"}}</td>
+            <td><button type="submit" class="btn btn-small pull-right"><i class="icon-plus"></i> Add</button></td>
+          </tr>
+        {{/if}}
         {{#each membership in memberships}}
           <tr>
             <td>{{membership.user.name}}</td>
             <td>{{membership.user.email}}</td>
             <td>{{tf membership.is_admin}}</td>
-            <td>
-              <button class="btn btn-small pull-right" {{action 'removeMembership' membership}}><i class="icon-remove"></i></button>
-            </td>
+            {{#if currentMembership.is_admin}}
+              <td>
+                <button class="btn btn-small pull-right" {{action 'removeMembership' membership}}><i class="icon-remove"></i></button>
+              </td>
+            {{/if}}
           </tr>
         {{/each}}
       </tbody>

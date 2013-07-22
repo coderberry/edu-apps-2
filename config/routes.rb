@@ -24,6 +24,9 @@ EduApps::Application.routes.draw do
         end
       end
 
+      resources :lti_apps, only: [:index, :show]
+      resources :tags, only: [:index, :show]
+
       post 'session' => 'session#create'
     end
   end

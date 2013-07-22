@@ -31,6 +31,10 @@ class User < ActiveRecord::Base
   def can_manage?(organization)
     !!memberships.where(organization_id: organization.id).where(is_admin: true).exists?
   end
+
+  def is_member?(organization)
+    !!memberships.where(organization_id: organization.id).exists?
+  end
   
   # protected instance methods ................................................
   # private instance methods ..................................................

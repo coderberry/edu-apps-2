@@ -15,7 +15,7 @@ module Api
       def show
         membership = Membership.where(id: params[:id]).first
         if membership
-          if current_user.can_manage?(membership.organization)
+          if current_user.is_member?(membership.organization)
             render json: membership, status: 200
           else
             render json: {}, status: 401
