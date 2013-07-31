@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130719174643) do
+ActiveRecord::Schema.define(version: 20130729171834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20130719174643) do
     t.boolean  "is_admin"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remote_uid"
   end
 
   add_index "memberships", ["organization_id"], name: "index_memberships_on_organization_id", using: :btree
@@ -77,6 +78,20 @@ ActiveRecord::Schema.define(version: 20130719174643) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "reviews", force: true do |t|
+    t.integer  "membership_id"
+    t.integer  "user_id"
+    t.integer  "rating"
+    t.text     "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lti_app_id"
+  end
+
+  add_index "reviews", ["lti_app_id"], name: "index_reviews_on_lti_app_id", using: :btree
+  add_index "reviews", ["membership_id"], name: "index_reviews_on_membership_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "tags", force: true do |t|
     t.string   "short_name"
@@ -94,6 +109,9 @@ ActiveRecord::Schema.define(version: 20130719174643) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_url",      limit: 1000
+    t.string   "url",             limit: 1000
+    t.boolean  "is_activated",                 default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

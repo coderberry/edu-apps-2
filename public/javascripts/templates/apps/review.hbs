@@ -1,0 +1,10 @@
+{{#with view.content}}
+  <a class="pull-left" href="#">
+    <img {{bindAttr src=user.avatar_url}} style="width: 48px; height: 48px;">
+    {{star-rating stars=rating}}
+  </a>
+  <div class="media-body">
+    <small>{{user.name}} on {{created_at}}</small><br>
+    {{comments}}
+  </div>
+{{/with}}

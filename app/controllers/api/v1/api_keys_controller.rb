@@ -14,8 +14,7 @@ module Api
           organization = Organization.where(id: organization_id).first
           if organization
             if current_user.can_manage?(organization)
-              organization.api_keys.map(&:expire)
-              api_key = organization.api_keys.active.api.create
+              api_key = organization.regenerate_api_key
               render json: api_key, status: 201
             else
               render json: {}, status: 401 and return

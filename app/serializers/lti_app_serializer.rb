@@ -3,6 +3,7 @@ class LtiAppSerializer < ActiveModel::Serializer
              :cartridge, :banner_image_url, :logo_image_url, :icon_image_url, :cartridge, :created_at, :updated_at
 
   has_many :tags, embed: :ids, include: true
+  has_many :reviews, embed: :ids
 
   def short_description
     ret = object.short_description

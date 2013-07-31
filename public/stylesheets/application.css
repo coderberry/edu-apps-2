@@ -1171,3 +1171,10 @@ form .controls .btn-aside{position:relative;top:-5px;left:10px}
 .app-details ul.tags li.platform{background-color:#49509a}
 .input-append,.input-prepend{margin-bottom:0}
 .well-small{border:0;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}.well-small input{margin-bottom:0}
+#app-reviews{margin:0}
+.star-sprite{display:block;width:46px;height:8px;margin-top:5px;overflow:hidden;background-image:url(/assets/star-sprite.png);background-position:0 0}
+.star-sprite.star-sprite-1{background-position:0 -8px}
+.star-sprite.star-sprite-2{background-position:0 -16px}
+.star-sprite.star-sprite-3{background-position:0 -24px}
+.star-sprite.star-sprite-4{background-position:0 -32px}
+.star-sprite.star-sprite-5{background-position:0 -40px}

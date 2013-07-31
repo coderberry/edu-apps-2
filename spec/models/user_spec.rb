@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe User do
   it { should validate_presence_of(:name) }
-  it { should ensure_length_of(:password).is_at_least(6) }
   it { should have_many(:memberships) }
   it { should have_many(:organizations).through(:memberships) }
   it { should have_many(:api_keys) }
@@ -12,6 +11,18 @@ describe User do
     api_key = user.session_api_key
     assert !api_key.new_record?
     assert api_key.access_token =~ /\S{32}/
+  end
+
+  it "should validate password if is_activated is true" do
+    user = User.new(is_activated: true)
+    user.valid?
+    user.errors.messages.keys.should include :password
+  end
+
+  it "should NOT validate password if is_activated is false" do
+    user = User.new
+    user.valid?
+    user.errors.messages.keys.should_not include :password
   end
 
   it "#clear_expired_api_keys" do

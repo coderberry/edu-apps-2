@@ -1,3 +1,4 @@
+require('../vendor/moment.min');
 require('../vendor/jquery');
 require('../vendor/jquery.cookie');
 require('../vendor/handlebars');

@@ -18,11 +18,12 @@ var LtiApp = Ember.Model.extend({
   
   // associations
   tags: Ember.hasMany('App.Tag', { key: 'tag_ids' }),
+  reviews: Ember.hasMany('App.Review', { key: 'review_ids' })
 
 }).reopenClass({
   rootKey:       'lti_app',
   collectionKey: 'lti_apps',
-  url:           '/api/v1/lti_apps',
+  url:           '/api/v1/apps',
   adapter:       Ember.RESTAdapter.create()
 });
 

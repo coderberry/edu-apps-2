@@ -15,7 +15,7 @@ module Api
 
       # curl 'http://localhost:3000/api/v1/users' --data 'user%5Bname%5D=Brad&user%5Bemail%5D=brad%40instructure.com&user%5Bpassword%5D=secret&user%5Bpassword_confirmation%5D=secret'
       def create
-        user = User.create(user_params)
+        user = User.create(user_params.merge(is_activated: true))
         if user.new_record?
           render json: { errors: user.errors.messages }, status: 422
         else
@@ -54,7 +54,7 @@ module Api
       private
 
       def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation, :url, :avatar_url)
       end
     end
   end
