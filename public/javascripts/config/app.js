@@ -1,6 +1,7 @@
 require('../vendor/moment.min');
 require('../vendor/jquery');
 require('../vendor/jquery.cookie');
+require('../vendor/bootstrap.min');
 require('../vendor/handlebars');
 require('../vendor/ember');
 require('../vendor/ember-model');

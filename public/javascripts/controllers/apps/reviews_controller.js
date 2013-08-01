@@ -1,5 +1,4 @@
-var AppsReviewsController = Ember.ArrayController.extend({
-});
+var AppsReviewsController = Ember.ArrayController.extend({});
 
 module.exports = AppsReviewsController;
 

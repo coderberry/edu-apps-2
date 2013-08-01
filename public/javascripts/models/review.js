@@ -1,16 +1,12 @@
 var moment = require('../vendor/moment.min');
 
 var Review = Ember.Model.extend({
-  // attributes
-  id:         Ember.attr(),
-  rating:     Ember.attr(Number),
-  comments:   Ember.attr(),
-  created_at: Ember.attr(Date),
-  user:       Ember.attr(), // Not association.. just load data
-
-  // reviewed_on: function() {
-  //   return moment(this.get('created_at')).format('MMMM Do YYYY, h:mm:ss a');
-  // }.property('created_at')
+  id:          Ember.attr(),
+  rating:      Ember.attr(Number),
+  comments:    Ember.attr(),
+  created_at:  Ember.attr(Date),
+  reviewed_on: Ember.attr(), // Formatted created_at
+  user:        Ember.attr(), // Not association.. just load data
 
 }).reopenClass({
   rootKey:       'review',

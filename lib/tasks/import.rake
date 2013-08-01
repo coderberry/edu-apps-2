@@ -30,6 +30,8 @@ namespace :import do
       app.testing_instructions = node['test_instructions']
       app.author_name          = node['author_name']
       app.app_type             = node['app_type']
+      app.config_url           = node['config_url']
+      app.preview_url          = node['preview'] ? node['preview']['url'] : nil
       app.ims_cert_url         = node['ims_link']
       app.banner_image_url     = node['banner_url']
       app.logo_image_url       = node['logo_url']

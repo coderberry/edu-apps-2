@@ -8,7 +8,8 @@
       <h4 class="name">{{app.name}}</h4>
       <p class="short-description">{{app.short_description}}</p>
       <div class="meta">
-        4 stars, 6 reviews
+        <div class="pull-right">{{app.total_ratings}} reviews</div>
+        {{star-wrapper stars=app.average_rating}}
       </div>
     {{/linkTo}}
   </li>

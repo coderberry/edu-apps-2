@@ -7,7 +7,8 @@
         </div>
         <div class="span7">
           <h2>{{name}}</h2>
-          <small class="author">by {{#linkTo 'apps'}}{{author_name}}{{/linkTo}}</small>
+          {{star-wrapper stars=average_rating}}
+          <div class="author">by {{#linkTo 'apps'}}{{author_name}}{{/linkTo}}</div>
           <ul class="tags">
             {{#each tag in tags}}
               <li {{bindAttr class="tag.context"}}>{{tag.name}}</li>
@@ -17,6 +18,13 @@
       </div>
       <div class="description">
         {{description}}
+      </div>
+      <div class="configuration-content">
+        <label>Configuration URL:</label>
+        {{#if hasPreview}}
+          <button {{action "preview" this}} class="pull-right btn btn-primary">Preview</button>
+        {{/if}}
+        {{edu-clipboard text=config_url spanx=7 message="Copied Config URL to clipboard"}}
       </div>
     </section>
     <section class="app-reviews">

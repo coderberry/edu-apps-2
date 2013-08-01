@@ -272,7 +272,8 @@ form {
   h2 {
     margin: 0px;
   }
-  small.author {
+  div.author {
+    margin-top: 15px;
     font-size: 13px;
     color: #666;
   }
@@ -306,6 +307,17 @@ form {
   margin-bottom: 0px;
 }
 
+.configuration-content {
+  border-top: thin dotted #efefef;
+  margin-top: 15px;
+  padding-top: 15px;
+
+  label {
+    font-size: 13px;
+    color: #333;
+  }
+}
+
 .well-small {
   border: 0px;
   -webkit-box-shadow: none;
@@ -319,6 +331,16 @@ form {
 
 #app-reviews {
   margin: 0px;
+
+  .media-body {
+    .small {
+      font-size: 12px;
+      color: #ccc;
+      span {
+        color: #aaa;
+      }
+    }
+  }
 }
 
 .star-sprite {
@@ -349,4 +371,28 @@ form {
 
 .star-sprite.star-sprite-5 {
     background-position: 0 -40px
+}
+
+span.stars, span.stars span {
+  display: block;
+  background: url(/assets/stars.png) 0 -16px repeat-x;
+  width: 80px;
+  height: 16px;
+}
+
+span.stars span {
+  background-position: 0 0;
+}
+
+#preview-modal {
+  margin-left: -335px;
+  width: 675px;
+
+  .iframe-wrapper {
+    height: 530px;
+  }
+  .modal-body {
+    padding: 0px;
+    max-height: 525px;
+  }
 }

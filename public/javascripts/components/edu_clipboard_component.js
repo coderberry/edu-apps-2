@@ -1,6 +1,17 @@
 var ZeroClipboard = window.ZeroClipboard = require('../vendor/ZeroClipboard');
 
 var EduClipboardComponent = Ember.Component.extend({
+
+  message: "Copied token to clipboard",
+
+  spanClass: function() {
+    if (Ember.isEmpty(this.get('spanx'))) {
+      return 'span4';
+    } else {
+      return 'span' + this.get('spanx');
+    }
+  }.property('spanx'),
+
   didInsertElement: function () {
     var clip = new ZeroClipboard(this.$('button'), {
       moviePath: "/assets/ZeroClipboard.swf"
@@ -15,8 +26,8 @@ var EduClipboardComponent = Ember.Component.extend({
     });
 
     clip.on( 'complete', function(client, args) {
-      App.FlashQueue.pushFlash('notice', 'Copied token to clipboard');
-    });
+      App.FlashQueue.pushFlash('notice', this.get('message'));
+    }.bind(this));
   }
 });
 

@@ -1,6 +1,7 @@
 class LtiAppSerializer < ActiveModel::Serializer
   attributes :id, :name, :short_name, :short_description, :description, :testing_instructions, :author_name, :app_type, :ims_cert_url,
-             :cartridge, :banner_image_url, :logo_image_url, :icon_image_url, :cartridge, :created_at, :updated_at
+             :cartridge, :config_url, :banner_image_url, :logo_image_url, :icon_image_url, :cartridge, :created_at, :updated_at,
+             :average_rating, :total_ratings, :preview_url
 
   has_many :tags, embed: :ids, include: true
   has_many :reviews, embed: :ids
